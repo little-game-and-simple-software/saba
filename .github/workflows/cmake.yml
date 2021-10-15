@@ -23,7 +23,6 @@ jobs:
 
     - name: config libs
       run: |
-        sudo apt-get install libgl1-mesa-dev
         sudo apt-get install libbullet-dev
         sudo apt-get install libglfw3-dev
     #- name: Configure CMake
