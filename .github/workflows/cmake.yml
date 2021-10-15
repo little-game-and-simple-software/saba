@@ -11,6 +11,18 @@ env:
   BUILD_TYPE: Release
 
 jobs:
+  windows:
+   runs-on: windows-latest
+   
+   steps:
+    - uses: actions/checkout@v2
+    - name: Build
+      run: |
+        mkdir build
+        cd build
+        cmake ..
+        make -j4
+        ls -l build
   build:
     # The CMake configure and build commands are platform agnostic and should work equally
     # well on Windows or Mac.  You can convert this to a matrix build if you need
