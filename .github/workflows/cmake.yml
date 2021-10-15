@@ -13,16 +13,25 @@ env:
 jobs:
   windows:
    runs-on: windows-latest
-   
+
    steps:
     - uses: actions/checkout@v2
     - name: Build
       run: |
-        mkdir build
-        cd build
-        cmake ..
-        make -j4
-        ls -l build
+        cmake -G "Visual Studio 14 2015 Win64" ^
+        -D CMAKE_INSTALL_PREFIX=<Your Bullet Physics install directory> ^
+        -D INSTALL_LIBS=ON ^
+        -D USE_MSVC_RUNTIME_LIBRARY_DLL=On ^
+        -D BUILD_CPU_DEMOS=Off ^
+        -D BUILD_OPENGL3_DEMOS=Off ^
+        -D BUILD_BULLET2_DEMOS=Off ^
+        -D BUILD_UNIT_TESTS=Off ^
+        ..
+        cmake --build . --config Debug --target ALL_BUILD
+        cmake --build . --config Debug --target INSTALL
+        cmake --build . --config Release --target ALL_BUILD
+        cmake --build . --config Release --target INSTALL
+        dir
   build:
     # The CMake configure and build commands are platform agnostic and should work equally
     # well on Windows or Mac.  You can convert this to a matrix build if you need
