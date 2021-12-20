@@ -2,6 +2,15 @@ cmake_minimum_required(VERSION 3.2)
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
 project(saba)
+# 设置交叉编译的目标操作为windows
+SET(CMAKE_SYSTEM_NAME Windows)
+
+# 指定c/c++编译器
+SET(CMAKE_C_COMPILER  x86_64-w64-mingw32-gcc)
+SET(CMAKE_CXX_COMPILER x86_64-w64-mingw32-g++)
+SET(CMAKE_RC_COMPILER x86_64-w64-mingw32-windres)
+# 指定编译目标操作系统版本时的搜索根路径
+SET(CMAKE_FIND_ROOT_PATH  /usr/x86_64-w64-mingw32 )
 
 set (CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
