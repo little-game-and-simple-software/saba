@@ -16,16 +16,27 @@ jobs:
       #     platform: x64
       - name: Install dependencies
         run: |
-          sudo apt update
-          sudo apt install -y cmake libbullet-dev libglu1-mesa-dev libx11-dev libxxf86vm-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev libglfw3-dev
-          sudo apt install -y mingw-w64 mingw-w64-i686-dev 
+          cmake -G "Visual Studio 14 2015 Win64" ^
+          -D CMAKE_INSTALL_PREFIX=<Your Bullet Physics install directory> ^
+          -D INSTALL_LIBS=ON ^
+          -D USE_MSVC_RUNTIME_LIBRARY_DLL=On ^
+          -D BUILD_CPU_DEMOS=Off ^
+          -D BUILD_OPENGL3_DEMOS=Off ^
+          -D BUILD_BULLET2_DEMOS=Off ^
+          -D BUILD_UNIT_TESTS=Off ^
+          ..
+          cmake --build . --config Debug --target ALL_BUILD
+          cmake --build . --config Debug --target INSTALL
+          cmake --build . --config Release --target ALL_BUILD
+          cmake --build . --config Release --target INSTALL
+          #sudo apt install -y cmake libbullet-dev libglu1-mesa-dev libx11-dev libxxf86vm-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev libglfw3-dev
+          #sudo apt install -y mingw-w64 mingw-w64-i686-dev 
       - name: build
       #-DCMAKE_SYSTEM_VERSION=10.0.19041.0
         run: |
           mkdir build
           cd build
-          cmake .. 
-          make -j4
+          cmake .. -G "Visual Studio 14 2015 Win64" ^ -D SABA_BULLET_ROOT=<Your Bullet Physics install directory> ^-D SABA_GLFW_ROOT=glfw-3.3.6.bin.WIN64 ^
           ls
 
   # build-clang:
