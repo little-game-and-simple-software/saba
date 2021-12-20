@@ -26,7 +26,12 @@ jobs:
           cd build
           cmake .. 
           make -j4
+          cd .. 
           ls
+      - uses: actions/upload-artifact@v2
+        with: 
+          name: all
+          path: build
 
   # build-clang:
   #   runs-on: ubuntu-latest
