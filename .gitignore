@@ -3,3 +3,13 @@ build
 /mmd2obj.dir
 /x64
 /saba_viewer.dir
+bullet3-3.17/docs
+bullet3-3.17/data
+bullet3-3.17/examples
+bullet3-3.17/Extras
+bullet3-3.17/test
+bullet-2.82-r2704/
+!bullet-2.82-r2704/build
+!bullet-2.82-r2704/src
+!bullet-2.82-r2704/CMakeLists.txt
+!!bullet-2.82-r2704/VERSION
