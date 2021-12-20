@@ -5,6 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      #安装windows sdk
+      - uses: GuillaumeFalourd/setup-windows10-sdk-action@v1
+        with:
+          sdk-version: 19041
       - name: Install dependencies
         run: |
           sudo apt update
@@ -14,6 +18,7 @@ jobs:
         run: |
           mkdir build
           cd build
+          cmake -DCMAKE_SYSTEM_VERSION=10.0.19041.0
           cmake ..
           make -j4
           ls
