@@ -18,6 +18,8 @@ jobs:
       #     platform: x64
       - name: Install dependencies
         run: |
+          mkdir build 
+          cd build
           cmake .. -G "Visual Studio 14 2015 Win64" -D CMAKE_INSTALL_PREFIX=bullet-2.82-r2704 -D INSTALL_LIBS=ON -D USE_MSVC_RUNTIME_LIBRARY_DLL=On -D BUILD_CPU_DEMOS=Off -D BUILD_OPENGL3_DEMOS=Off -D BUILD_BULLET2_DEMOS=Off -D BUILD_UNIT_TESTS=Off
           cmake --build . --config Debug --target ALL_BUILD
           cmake --build . --config Debug --target INSTALL
@@ -26,8 +28,8 @@ jobs:
       - name: build
       #-DCMAKE_SYSTEM_VERSION=10.0.19041.0
         run: |
-          mkdir build
-          cd build
+          #mkdir build
+          #cd build
           cmake .. -G "Visual Studio 14 2015 Win64" ^ -D SABA_BULLET_ROOT=bullet-2.82-r2704 ^-D SABA_GLFW_ROOT=glfw-3.3.6.bin.WIN64 ^
           ls
           msbuild xxx.sln
