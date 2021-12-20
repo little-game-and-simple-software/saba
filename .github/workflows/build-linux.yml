@@ -6,14 +6,19 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       #安装windows sdk
-      - uses: GuillaumeFalourd/setup-windows10-sdk-action@v1
+      # - uses: GuillaumeFalourd/setup-windows10-sdk-action@v1
+      #   with:
+      #     sdk-version: 19041
+      #设置mingw
+      - name: Set up MinGW
+        uses: egor-tensin/setup-mingw@v2
         with:
-          sdk-version: 19041
+          platform: x64
       - name: Install dependencies
         run: |
           sudo apt update
           sudo apt install -y cmake libbullet-dev libglu1-mesa-dev libx11-dev libxxf86vm-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev libglfw3-dev
-          sudo apt install -y mingw-w64 mingw-w64-i686-dev mingw32 mingw32-binutils mingw32-runtime
+          #sudo apt install -y mingw-w64 mingw-w64-i686-dev 
       - name: build
       #-DCMAKE_SYSTEM_VERSION=10.0.19041.0
         run: |
