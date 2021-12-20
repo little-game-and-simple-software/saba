@@ -20,7 +20,7 @@ jobs:
         run: |
           mkdir build 
           cd build
-          cmake .. -G "Visual Studio 16 2019 Win64" -D CMAKE_INSTALL_PREFIX=bullet3-3.17 -D INSTALL_LIBS=ON -D USE_MSVC_RUNTIME_LIBRARY_DLL=On -D BUILD_CPU_DEMOS=Off -D BUILD_OPENGL3_DEMOS=Off -D BUILD_BULLET2_DEMOS=Off -D BUILD_UNIT_TESTS=Off
+          cmake .. -G "Visual Studio 16 2019" -D CMAKE_INSTALL_PREFIX=bullet3-3.17 -D INSTALL_LIBS=ON -D USE_MSVC_RUNTIME_LIBRARY_DLL=On -D BUILD_CPU_DEMOS=Off -D BUILD_OPENGL3_DEMOS=Off -D BUILD_BULLET2_DEMOS=Off -D BUILD_UNIT_TESTS=Off
           cmake --build . --config Debug --target ALL_BUILD
           cmake --build . --config Debug --target INSTALL
           cmake --build . --config Release --target ALL_BUILD
@@ -30,7 +30,7 @@ jobs:
         run: |
           #mkdir build
           #cd build
-          cmake .. -G "Visual Studio 16 2019 Win64"  -D SABA_BULLET_ROOT=bullet-2.82-r2704 -D SABA_GLFW_ROOT=glfw-3.3.6.bin.WIN64 
+          cmake .. -G "Visual Studio 16 2019"  -D SABA_BULLET_ROOT=bullet-2.82-r2704 -D SABA_GLFW_ROOT=glfw-3.3.6.bin.WIN64 
           ls
           msbuild xxx.sln
           #devenv [解决方案文件 | 项目文件 | 任意文件.扩展名] [开关]
