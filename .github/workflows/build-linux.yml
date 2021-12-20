@@ -18,8 +18,7 @@ jobs:
         run: |
           mkdir build
           cd build
-          cmake -DCMAKE_SYSTEM_VERSION=10.0.19041.0
-          cmake --build .
+          cmake .. -DCMAKE_SYSTEM_VERSION=10.0.19041.0
           make -j4
           ls
 
