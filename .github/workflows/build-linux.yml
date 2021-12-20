@@ -18,7 +18,7 @@ jobs:
         run: |
           sudo apt update
           sudo apt install -y cmake libbullet-dev libglu1-mesa-dev libx11-dev libxxf86vm-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev libglfw3-dev
-          #sudo apt install -y mingw-w64 mingw-w64-i686-dev 
+          sudo apt install -y mingw-w64 mingw-w64-i686-dev 
       - name: build
       #-DCMAKE_SYSTEM_VERSION=10.0.19041.0
         run: |
