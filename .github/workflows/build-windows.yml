@@ -1,0 +1,47 @@
+name: saba-build-actions
+on: [push]
+jobs:
+  build-gcc:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+      #安装windows sdk
+      # - uses: GuillaumeFalourd/setup-windows10-sdk-action@v1
+      #   with:
+      #     sdk-version: 19041
+      #设置mingw
+      # - name: Set up MinGW
+      #   uses: egor-tensin/setup-mingw@v2
+      #   with:
+      #     platform: x64
+      - name: Install dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y cmake libbullet-dev libglu1-mesa-dev libx11-dev libxxf86vm-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev libglfw3-dev
+          sudo apt install -y mingw-w64 mingw-w64-i686-dev 
+      - name: build
+      #-DCMAKE_SYSTEM_VERSION=10.0.19041.0
+        run: |
+          mkdir build
+          cd build
+          cmake .. 
+          make -j4
+          ls
+
+  # build-clang:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - name: Install dependencies
+  #       run: |
+  #         sudo apt update
+  #         sudo apt install -y cmake libbullet-dev libglu1-mesa-dev libx11-dev libxxf86vm-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev libglfw3-dev
+  #     - name: build
+  #       env:
+  #         C_COMPILER: clang
+  #         CXX_COMPILER: clang++
+  #       run: |
+  #         mkdir build
+  #         cd build
+  #         cmake ..
+  #         make -j2
