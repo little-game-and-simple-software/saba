@@ -6,16 +6,19 @@ project(saba)
 SET(CMAKE_SYSTEM_NAME Windows)
 
 # 指定c/c++编译器
-#SET(CMAKE_C_COMPILER  i686-w64-mingw32-gcc)
-#SET(CMAKE_CXX_COMPILER i686-w64-mingw32-g++)
+SET(CMAKE_C_COMPILER  i686-w64-mingw32-gcc)
+SET(CMAKE_CXX_COMPILER i686-w64-mingw32-g++)
+#SET(CMAKE_C_COMPILER  mingw-w64-x86_64-gcc)
+#SET(CMAKE_CXX_COMPILER mingw-w64-x86_64-g++)
 #SET(CMAKE_RC_COMPILER i686-w64-mingw32-windres)
 # 指定编译目标操作系统版本时的搜索根路径
-#SET(CMAKE_FIND_ROOT_PATH  /usr/i686-w64-mingw32)
+set(OpenGL_GL_PREFERENCE LEGACY)
+#SET(CMAKE_FIND_ROOT_PATH  C:/msys64/mingw64/bin)
 
 set (CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
-option (SABA_BULLET_ROOT "Bullet Root Directory" "")
-option (SABA_ENABLE_TEST "Enable Google test." on)
+option (SABA_BULLET_ROOT "Bullet Root Directory" "bullet_dll")
+option (SABA_ENABLE_TEST "Enable Google test." off)
 option (SABA_ENABLE_GL_TEST "OpenGL test." off)
 option (SABA_USE_GLSLANG "glsl Preprocessor : glslang lib" off)
 option (SABA_INSTALL "Saba install." off)
