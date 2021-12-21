@@ -14,7 +14,7 @@ SET(CMAKE_CXX_COMPILER i686-w64-mingw32-g++)
 # 指定编译目标操作系统版本时的搜索根路径
 set(OpenGL_GL_PREFERENCE LEGACY)
 #SET(CMAKE_FIND_ROOT_PATH  C:/msys64/mingw64/bin)
-
+include_directories("winApi")
 set (CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
 option (SABA_BULLET_ROOT "Bullet Root Directory" "bullet_dll")
