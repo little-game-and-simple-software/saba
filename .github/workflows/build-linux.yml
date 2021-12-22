@@ -1,4 +1,4 @@
-name: saba-build-actions
+name: linux
 on: [push]
 jobs:
   build-gcc:

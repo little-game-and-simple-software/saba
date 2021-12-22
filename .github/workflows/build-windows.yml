@@ -1,4 +1,4 @@
-name: saba-build-actions
+name: windows
 on: [push]
 jobs:
   build-msvc:
