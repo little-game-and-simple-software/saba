@@ -3,21 +3,25 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
 project(saba)
 # 设置交叉编译的目标操作为windows
-SET(CMAKE_SYSTEM_NAME Windows)
-
+#SET(CMAKE_SYSTEM_NAME Windows)
+#set(CMAKE_PREFIX_PATH /opencv/build)
 # 指定c/c++编译器
-SET(CMAKE_C_COMPILER  i686-w64-mingw32-gcc)
-SET(CMAKE_CXX_COMPILER i686-w64-mingw32-g++)
+#SET(CMAKE_C_COMPILER  i686-w64-mingw32-gcc)
+#SET(CMAKE_CXX_COMPILER i686-w64-mingw32-g++)
 #SET(CMAKE_C_COMPILER  mingw-w64-x86_64-gcc)
 #SET(CMAKE_CXX_COMPILER mingw-w64-x86_64-g++)
+SET(CMAKE_C_COMPILER  gcc)
+SET(CMAKE_CXX_COMPILER g++)
+#SET(CMAKE_RC_COMPILER i686-w64-mingw32-windres)
 #SET(CMAKE_RC_COMPILER i686-w64-mingw32-windres)
 # 指定编译目标操作系统版本时的搜索根路径
 #set(OpenGL_GL_PREFERENCE LEGACY)
 #SET(CMAKE_FIND_ROOT_PATH  C:/msys64/mingw64/bin)
-include_directories("winApi")
+#include_directories("winApi")
 set (CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+set ( CMAKE_MAKE_PROGRAM "make")
 
-option (SABA_BULLET_ROOT "Bullet Root Directory" "${CMAKE_CURRENT_SOURCE_DIR}/bullet_dll")
+option (SABA_BULLET_ROOT "Bullet Root Directory" "")
 option (SABA_ENABLE_TEST "Enable Google test." off)
 option (SABA_ENABLE_GL_TEST "OpenGL test." off)
 option (SABA_USE_GLSLANG "glsl Preprocessor : glslang lib" off)
