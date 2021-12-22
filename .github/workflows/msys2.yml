@@ -16,4 +16,4 @@ jobs:
       - name: CI-Build
         run: |
           echo "running in msys2!"
-          ./ci-build.sh 
+          #./ci-build.sh 
