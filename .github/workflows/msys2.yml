@@ -17,3 +17,6 @@ jobs:
         run: |
           echo "running in msys2!"
           #./ci-build.sh 
+          mkdir build
+          cd build 
+          cmake ..
