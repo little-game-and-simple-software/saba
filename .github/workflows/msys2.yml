@@ -12,7 +12,7 @@ jobs:
       run:
         shell: msys2 {0}
     steps:
-    - name: '🧰 Checkout'
+    - name: 'Checkout'
       uses: actions/checkout@v2
 
     - name:  Setup MSYS2'
@@ -20,7 +20,7 @@ jobs:
         msystem: MINGW64
         update: true
         install: git mingw-w64-x86_64-toolchain
-    - name: '🚧 Build TOOL'
+    - name: 'Build TOOL'
       run: |
         ls
         whereis cmake
