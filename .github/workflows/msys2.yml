@@ -18,10 +18,9 @@ jobs:
           install: mingw-w64-x86_64-toolchain mingw-w64-x86_64-cmake mingw-w64-x86_64-make mingw-w64-x86_64-bullet mingw-w64-x86_64-mesa mingw-w64-x86_64-glfw
           
       - name: CI-Build
-      - shell: cmd
+        shell: cmd
         run: |
           echo "running in cmd!"
-          echo 在msys2里的路径！
           pwd
           
           msys2_shell.cmd -mingw64
@@ -29,7 +28,7 @@ jobs:
 
           whereis cmake
           whereis make
-          
+
           echo "开始构建"
           mkdir build 
           cd build 
