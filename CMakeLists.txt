@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.2)
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
-
+cmake_policy(SET CMP0074 NEW)
 project(saba)
 # 设置交叉编译的目标操作为windows
 #SET(CMAKE_SYSTEM_NAME Windows)
@@ -19,7 +19,7 @@ SET(CMAKE_CXX_COMPILER g++)
 #SET(CMAKE_FIND_ROOT_PATH  C:/msys64/mingw64/bin)
 #include_directories("winApi")
 set (CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
-set ( CMAKE_MAKE_PROGRAM "make")
+set (CMAKE_MAKE_PROGRAM "make.exe")
 
 option (SABA_BULLET_ROOT "Bullet Root Directory" "")
 option (SABA_ENABLE_TEST "Enable Google test." off)

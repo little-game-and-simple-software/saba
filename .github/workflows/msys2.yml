@@ -23,7 +23,7 @@ jobs:
           whereis make
           mkdir build 
           cd build 
-          cmake -G "MinGW Makefiles" ..
+          cmake.exe -G "MinGW Makefiles" ..
           make -j2 
           echo build目录下文件列表！
           ls 
