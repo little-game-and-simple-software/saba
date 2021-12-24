@@ -7,8 +7,7 @@ jobs:
       CMAKE_MAKE_PROGRAM: make.exe
     defaults:
       run:
-        shell: cmd 
-          #msys2 {0}
+        shell: msys2 {0}
     steps:
       - uses: actions/checkout@v2
       - uses: msys2/setup-msys2@v2
@@ -22,10 +21,10 @@ jobs:
         run: |
           echo "running in cmd!"
           pwd
-          
-          msys2_shell.cmd -mingw64
-          echo "检查路径"
+          dir
 
+          msys2_shell.cmd -mingw64
+          echo "检查cmake make"
           whereis cmake
           whereis make
 
