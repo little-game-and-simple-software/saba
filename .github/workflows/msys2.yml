@@ -17,9 +17,9 @@ jobs:
         include:
           - { icon: '⬛', sys: mingw32 }
           - { icon: '🟦', sys: mingw64 }
-          - { icon: '🟨', sys: ucrt64  } # Experimental!
-          - { icon: '🟧', sys: clang64 } # Experimental!
-    name: 🚧${{ matrix.icon }} ${{ matrix.sys }}
+          - { icon: '🟨', sys: ucrt64  } # Experimental! 试验性的”。
+          - { icon: '🟧', sys: clang64 } # Experimental! 试验性的”。
+    #name: 🚧${{ matrix.icon }} ${{ matrix.sys }}
     defaults:
       run:
         shell: msys2 {0}
@@ -30,7 +30,7 @@ jobs:
       with:
         fetch-depth: 0
 
-    - name: '${{ matrix.icon }} Setup MSYS2'
+    - name:  Setup MSYS2'
       with:
         msystem: ${{matrix.sys}}
         update: true
