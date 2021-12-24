@@ -1,28 +1,29 @@
-name: Example
-
-on:
-  push:
-  workflow_dispatch:
-
+name: msys2
+on: [push]
 jobs:
-
-  build:
+  build: 
     runs-on: windows-latest
     defaults:
       run:
         shell: msys2 {0}
     steps:
-    - name: '🧰 Checkout'
-      uses: actions/checkout@v2
-
-    - name:  Setup MSYS2'
-      with:
-        msystem: MINGW64
-        update: true
-        install: git mingw-w64-x86_64-toolchain
-    - name: '🚧 Build TOOL'
-      run: |
-        ls
-        whereis cmake
-        #cmake -G Ninja -B build -DCMAKE_BUILD_TYPE=Release
-        #cmake --build build
+      - uses: actions/checkout@v2
+      - uses: msys2/setup-msys2@v2
+        with:
+          msystem: MINGW64 
+          update: true
+          install: git mingw-w64-x86_64-toolchain mingw-w64-x86_64-cmake mingw-w64-x86_64-make mingw-w64-x86_64-bullet mingw-w64-x86_64-mesa mingw-w64-x86_64-glfw
+          CMAKE_MAKE_PROGRAM: make
+      - name: CI-Build
+        run: |
+          echo "running in msys2!"
+          #echo 在msys2里的路径！
+          #pwd
+          whereis cmake
+          whereis make
+          mkdir build 
+          cd build 
+          cmake -G "MinGW Makefiles" ..
+          make -j2 
+          echo build目录下文件列表！
+          ls 
