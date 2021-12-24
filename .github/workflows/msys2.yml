@@ -16,4 +16,11 @@ jobs:
       - name: CI-Build
         run: |
           echo "running in msys2!"
-          whereis cmake 
+          pwd
+          whereis cmake
+          ls
+          mkdir build 
+          cd build 
+          cmake ..
+          make -j2 
+          ls 
