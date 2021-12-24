@@ -14,10 +14,9 @@ jobs:
         with:
           msystem: MINGW64 
           update: true
-          install: mingw-w64-x86_64-toolchain mingw-w64-x86_64-cmake mingw-w64-x86_64-make mingw-w64-x86_64-bullet mingw-w64-x86_64-mesa mingw-w64-x86_64-glfw
+          install: mingw-w64-x86_64-toolchain mingw-w64-x86_64-cmake mingw-w64-x86_64-make mingw-w64-x86_64-bullet mingw-w64-x86_64-mesa mingw-w64-x86_64-glfw mingw-w64-x86_64-ninja
           
       - name: CI-Build
-        shell: cmd
         run: |
           echo "running in cmd!"
           pwd
@@ -26,7 +25,7 @@ jobs:
           echo "进入上级目录找到msys2.cmd"
           cd ..
           dir
-          
+
           msys2_shell.cmd -mingw64
           echo "检查cmake make"
           whereis cmake
@@ -35,6 +34,9 @@ jobs:
           echo "开始构建"
           #mkdir build 
           #cd build 
+          cmake.exe -G "Ninja" ..
+          dir
+          ninja 
           #cmake.exe -G "MinGW Makefiles" ..
           #make -j2 
           #echo build目录下文件列表！
