@@ -19,7 +19,7 @@ SET(CMAKE_CXX_COMPILER g++)
 #SET(CMAKE_FIND_ROOT_PATH  C:/msys64/mingw64/bin)
 #include_directories("winApi")
 set (CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
-set ( CMAKE_MAKE_PROGRAM "make")
+set (CMAKE_MAKE_PROGRAM "make")
 
 option (SABA_BULLET_ROOT "Bullet Root Directory" "")
 option (SABA_ENABLE_TEST "Enable Google test." off)
