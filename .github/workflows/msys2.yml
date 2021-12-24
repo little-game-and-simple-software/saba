@@ -16,14 +16,12 @@ jobs:
       - name: CI-Build
         run: |
           echo "running in msys2!"
-          echo 在msys2里的路径
+          echo 在msys2里的路径！
           pwd
           whereis cmake
-          echo CI-Build path
-          ls
           mkdir build 
           cd build 
-          cmake ..
+          cmake -G "Unix Makefiles" ..
           make -j2 
-          echo in build Path!
+          echo build目录下文件列表！
           ls 
