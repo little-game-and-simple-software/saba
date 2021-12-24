@@ -16,7 +16,7 @@ jobs:
       - name: CI-Build
         run: |
           echo "running in msys2!"
-          ech get path
+          echo 在msys2里的路径
           pwd
           whereis cmake
           echo CI-Build path
