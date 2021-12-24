@@ -1,4 +1,4 @@
-name: Hello World
+name: msys2
 on: [push]
 jobs:
   build: 
