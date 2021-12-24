@@ -22,16 +22,20 @@ jobs:
           echo "running in cmd!"
           pwd
           dir
-
+          
+          echo "进入上级目录找到msys2.cmd"
+          cd ..
+          dir
+          
           msys2_shell.cmd -mingw64
           echo "检查cmake make"
           whereis cmake
           whereis make
 
           echo "开始构建"
-          mkdir build 
-          cd build 
-          cmake.exe -G "MinGW Makefiles" ..
-          make -j2 
-          echo build目录下文件列表！
-          ls 
+          #mkdir build 
+          #cd build 
+          #cmake.exe -G "MinGW Makefiles" ..
+          #make -j2 
+          #echo build目录下文件列表！
+          #ls 
