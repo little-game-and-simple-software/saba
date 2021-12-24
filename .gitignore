@@ -2,6 +2,7 @@ build
 /mmd2obj.dir
 /mmd2obj.dir
 /x64
+ninja/
 /saba_viewer.dir
 bullet3-3.17/docs
 bullet3-3.17/data
