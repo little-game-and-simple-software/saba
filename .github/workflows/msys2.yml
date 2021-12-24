@@ -19,9 +19,11 @@ jobs:
           ech get path
           pwd
           whereis cmake
+          echo CI-Build path
           ls
           mkdir build 
           cd build 
           cmake ..
           make -j2 
+          echo in build Path!
           ls 
