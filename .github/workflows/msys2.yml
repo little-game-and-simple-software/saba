@@ -11,37 +11,31 @@ jobs:
 
   build:
     runs-on: windows-latest
-    strategy:
-      matrix:
+    #strategy:
+     # matrix:
         #fail-fast: false
-        include:
-          - { icon: '⬛', sys: mingw32 }
-          - { icon: '🟦', sys: mingw64 }
-          - { icon: '🟨', sys: ucrt64  } # Experimental! 试验性的”。
-          - { icon: '🟧', sys: clang64 } # Experimental! 试验性的”。
+       # include:
+        #  - { icon: '⬛', sys: mingw32 }
+        #  - { icon: '🟦', sys: mingw64 }
+        # - { icon: '🟨', sys: ucrt64  } # Experimental! 试验性的”。
+        # - { icon: '🟧', sys: clang64 } # Experimental! 试验性的”。
     #name: 🚧${{ matrix.icon }} ${{ matrix.sys }}
     defaults:
       run:
         shell: msys2 {0}
     steps:
-
     - name: '🧰 Checkout'
       uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
-
+      
     - name:  Setup MSYS2'
       with:
-        msystem: ${{matrix.sys}}
+        msystem: MINGW64
         update: true
-        install: >-
-          git
-          make
-        pacboy: >-
-          toolchain:p
-          cmake:p
-          ninja:p
-
+        install: git mingw-w64-x86_64-toolchain
+        #pacboy: >-
+        #  toolchain:p
+        # cmake:p
+        # ninja:p
     - name: '🚧 Build TOOL'
       run: |
         ls
