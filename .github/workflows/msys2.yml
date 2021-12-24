@@ -31,7 +31,7 @@ jobs:
           ls 
       - uses: actions/upload-artifact@v2
         with: 
-          name: build-x64.zip
+          name: build-x64
           path: build
   build_x86: 
     runs-on: windows-latest
@@ -63,5 +63,5 @@ jobs:
           ls 
       - uses: actions/upload-artifact@v2
         with: 
-          name: build-x86.zip
+          name: build-x86
           path: build
