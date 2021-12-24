@@ -3,8 +3,6 @@ on: [push]
 jobs:
   build_x64: 
     runs-on: windows-latest
-    env:
-      CMAKE_MAKE_PROGRAM: make.exe
     defaults:
       run:
         shell: msys2 {0}
@@ -28,10 +26,42 @@ jobs:
           mkdir build 
           cd build 
           cmake.exe -G "Ninja" ..
-          ninja 
+          ninja -j4
           echo "构建"
           ls 
       - uses: actions/upload-artifact@v2
         with: 
-          name: build.zip
+          name: build-x64.zip
+          path: build
+  build_x86: 
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: msys2 {0}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: msys2/setup-msys2@v2
+        with:
+          msystem: MINGW32 
+          update: true
+          install: mingw-w64-i686-toolchain mingw-w64-i686-cmake mingw-w64-i686-make mingw-w64-i686-bullet mingw-w64-i686-mesa mingw-w64-i686-glfw mingw-w64-i686-ninja
+          
+      - name: CI-Build
+        run: |
+          echo "running in msys2!"
+          pwd
+          echo "检查cmake make"
+          whereis cmake
+          whereis ninja
+
+          echo "开始构建"
+          mkdir build 
+          cd build 
+          cmake.exe -G "Ninja" ..
+          ninja -j4
+          echo "构建"
+          ls 
+      - uses: actions/upload-artifact@v2
+        with: 
+          name: build-x86.zip
           path: build
